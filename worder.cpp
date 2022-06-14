@@ -660,7 +660,122 @@ struct Worder{
 //以上是词法分析器Worder,调用 方法 getword()会返回下一个单词的token ,token的kind=="Finish"没有下一个单词了 
 //-----------------------------------------------------------------------------------------------------------------
 
+struct  SYNB
+{
+	string kname;			//名字 
+	int ktype;			//类型 
+	string kcat;			//种类 
+	int isact;				//活跃信息，0不活跃；1活跃 
+	int addr;				//指向相关信息 
+};
+vector<SYNB> synbl;//符号表/主表 
 
+struct VAL
+{
+	int be;//开始 
+	int ed;//结束 
+	string kname;//名字 
+};
+vector<VAL> vall;//活动记录 
+
+struct QT
+{
+	string oper;			//算符 
+	string object1;			//对象1 
+	string object2;			//对象2 
+	string ans;				//结果 
+};
+vector<QT> qtl;				//四元式表 
+
+struct E
+{
+	string kname;
+	int ed;
+};
+
+struct F
+{
+	string kname;
+	int ed;
+};
+
+struct T
+{
+	string kname;
+	int ed;
+};
+
+struct TYPE//类型
+{
+	string ktval;			 
+	
+	int kainf;			//数组表 
+	int krinf;			//结构表 
+}; 
+vector<TYPE> typel;
+
+struct AINF//数组 
+{
+	int kbegin;
+	int kend;
+	int ktype;
+	
+	int size;
+};
+vector<AINF> ainfl;
+
+struct RINF//结构 
+{
+	string kname;
+	int kbegin;
+	string kcat;
+};
+vector<RINF> rinfl;
+
+struct PFINF//函数 
+{
+	string klevel;
+	int numvariate;
+	int kpara;
+};
+vector<PFINF> pfinfl;
+
+struct PARA//参数
+{
+	string kname;
+	int ktype;
+	string kcat;
+	int addr;
+};
+vector<PARA> paral;
+
+struct CONS//常量 
+{
+	int kcons;
+};
+vector<CONS> consl;
+
+struct LEN//长度 
+{
+	int klen;
+};
+vector<LEN> lenl;
+
+int tnum=0;
+string newt()		//返回一个新的临时变量 
+{
+	int i;
+	tnum++;i=tnum;
+	char a;
+	string x="t",tmp="";
+	while(1)
+	{
+		a=tnum%10+'0';
+		tmp+=a;
+		i=i/10;
+		if(i==0){x+=tmp;return x;}
+	}
+}
 
 
 int main()
