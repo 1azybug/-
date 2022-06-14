@@ -667,6 +667,11 @@ struct  SYNB
 	string kcat;			//种类 
 	int isact;				//活跃信息，0不活跃；1活跃 
 	int addr;				//指向相关信息 
+	//输出函数
+	void pt0()
+	{
+		cout<<kname<<" "<<ktype<<" "<<kcat<<" "<<isact<<endl;
+	}
 };
 vector<SYNB> synbl;//符号表/主表 
 
