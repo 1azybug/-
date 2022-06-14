@@ -668,6 +668,6 @@ int main()
 	Worder ws;
 	ws.run();
 	ws.pt();
-	
+	ws.pt();
 }
 
