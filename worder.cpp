@@ -667,6 +667,11 @@ struct  SYNB
 	string kcat;			//种类 
 	int isact;				//活跃信息，0不活跃；1活跃 
 	int addr;				//指向相关信息 
+	//输出函数
+	void pt0()
+	{
+		cout<<kname<<" "<<ktype<<" "<<kcat<<" "<<isact<<endl;
+	}
 };
 vector<SYNB> synbl;//符号表/主表 
 
@@ -684,6 +689,35 @@ struct QT
 	string object1;			//对象1 
 	string object2;			//对象2 
 	string ans;				//结果 
+	//赋值函数
+	void push(string _oper,string _object1,string _object2,string _ans)
+	{
+		oper=_oper;
+		if(_object1.empty())
+		{
+			object1='_';
+		}
+		else
+		object1=_object1;
+		if(_object2.empty())
+		{
+			object2='_';
+		}
+		else
+		object2=_object2;
+		if(_ans.empty())
+		{
+			ans='_';
+		}
+		else
+		ans=_ans;
+	}
+	
+	//输出函数
+	void pt0()
+	{
+		cout<<"("<<oper<<" "<<object1<<" "<<object2<<" "<<ans<<")"<<endl;
+	}
 };
 vector<QT> qtl;				//四元式表 
 
@@ -691,19 +725,19 @@ struct E
 {
 	string kname;
 	int ed;
-};
+};//文法E
 
 struct F
 {
 	string kname;
 	int ed;
-};
+};//文法F
 
 struct T
 {
 	string kname;
 	int ed;
-};
+};//文法T
 
 struct TYPE//类型
 {
